@@ -1,5 +1,6 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
@@ -71,8 +72,26 @@ export async function signup(
     return { errors: fieldErrors };
   }
 
+  const requestHeaders = await headers();
+  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
+  const protocol = requestHeaders.get("x-forwarded-proto") ?? "http";
+  const baseUrl = host ? `${protocol}://${host}` : process.env.NEXT_PUBLIC_SITE_URL;
+
+  if (!baseUrl) {
+    return {
+      error:
+        "Missing host information. Set NEXT_PUBLIC_SITE_URL for email confirmation redirects.",
+    };
+  }
+
   const supabase = await createClient();
-  const { error } = await supabase.auth.signUp({ email, password });
+  const { error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      emailRedirectTo: `${baseUrl}/auth/confirm?next=/dashboard`,
+    },
+  });
 
   if (error) {
     // Supabase returns this message for already-registered users when
