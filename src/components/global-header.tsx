@@ -14,10 +14,7 @@ export default async function GlobalHeader() {
       style={{
         position: "sticky",
         top: 0,
-        zIndex: 50,
-        borderBottom: "1px solid color-mix(in oklab, currentColor 18%, transparent)",
-        backdropFilter: "blur(8px)",
-        background: "color-mix(in oklab, var(--background) 92%, transparent)",
+        zIndex: 50
       }}
     >
       <div
@@ -31,18 +28,19 @@ export default async function GlobalHeader() {
           gap: "1rem",
         }}
       >
-        <Link href="/" style={{ fontWeight: 700, letterSpacing: "0.02em" }}>
-          community.dog
+        <Link href="/" >
+          c0mmunity.dog 🌭
         </Link>
 
         <nav
           aria-label="Global"
-          style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
+          style={{ display: "flex", alignItems: "left", gap: "0.75rem", border: "solid 1px blue" }}
         >
           <Link href="/">Home</Link>
 
           {user ? (
             <>
+              <p>Signed in as <strong>{user?.email}</strong></p>
               <Link href="/dashboard">Dashboard</Link>
               <form action={logout}>
                 <button type="submit">Log out</button>

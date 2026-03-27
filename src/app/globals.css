@@ -1,12 +1,15 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: rgb(249, 241, 208);
+  --foreground: rgb(36, 35, 36);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background:rgb(36, 35, 36);
+    --foreground:rgb(249, 241, 208);
   }
 }
 
