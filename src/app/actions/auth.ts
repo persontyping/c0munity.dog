@@ -16,6 +16,14 @@ export type AuthFormState =
     }
   | undefined;
 
+async function getAuthRedirectBaseUrl() {
+  const requestHeaders = await headers();
+  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
+  const protocol = requestHeaders.get("x-forwarded-proto") ?? "http";
+
+  return host ? `${protocol}://${host}` : process.env.NEXT_PUBLIC_SITE_URL;
+}
+
 // ---------------------------------------------------------------------------
 // Login
 // ---------------------------------------------------------------------------
@@ -72,10 +80,7 @@ export async function signup(
     return { errors: fieldErrors };
   }
 
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? "http";
-  const baseUrl = host ? `${protocol}://${host}` : process.env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl = await getAuthRedirectBaseUrl();
 
   if (!baseUrl) {
     return {
@@ -105,6 +110,46 @@ export async function signup(
   return {
     message:
       "Account created. Check your email for a confirmation link before logging in.",
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Passwordless login (Magic Link)
+// ---------------------------------------------------------------------------
+export async function loginWithMagicLink(
+  _prevState: AuthFormState,
+  formData: FormData,
+): Promise<AuthFormState> {
+  const email = String(formData.get("email") ?? "").trim();
+
+  if (!email || !email.includes("@")) {
+    return { errors: { email: "Please enter a valid email address." } };
+  }
+
+  const baseUrl = await getAuthRedirectBaseUrl();
+
+  if (!baseUrl) {
+    return {
+      error:
+        "Missing host information. Set NEXT_PUBLIC_SITE_URL for magic link redirects.",
+    };
+  }
+
+  const supabase = await createClient();
+  const { error } = await supabase.auth.signInWithOtp({
+    email,
+    options: {
+      shouldCreateUser: false,
+      emailRedirectTo: `${baseUrl}/auth/confirm?next=/dashboard`,
+    },
+  });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  return {
+    message: "Magic link sent. Check your email to continue.",
   };
 }
 
