@@ -10,15 +10,15 @@
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: "DM Sans";
   src: url("/fonts/DM_Sans,Monofett/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf") format("truetype");
   font-style: italic;
   font-weight: 100 1000;
   font-display: swap;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: "Amatic SC";
   src: url("/fonts/AmaticSC-Regular.ttf") format("truetype");
   font-style: normal;
@@ -32,7 +32,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-}
+} */
 
 @font-face {
   font-family: "Monofett";
@@ -42,13 +42,13 @@
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Mynerve";
   src: url("/fonts/Mynerve/Mynerve-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-}
+} */
 
 
 /* ===============================
@@ -59,7 +59,7 @@
 
   /* Fonts */
   --font-sans: "DM Sans", "Nunito Sans", Helvetica, Arial, sans-serif;
-  --font-display: "Amatic SC", "Mynerve", cursive;
+  /* --font-display: "Amatic SC", "Mynerve", cursive; */
   --font-accent: "Monofett", monospace;
   
   /* Background */
@@ -97,30 +97,19 @@
 }
 
 
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background:rgb(36, 35, 36);
-    --foreground:rgb(249, 241, 208);
-  }
-}
-
 html {
-  height: 100%;
+  height: 100vh;
 }
 
-html,
-body {
-  max-width: 100vw;
-}
 
 body {
   margin: 0, auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  border: 1px solid green;
-  flex-direction: column;
-  display: flex;
+  border: 1px solid var(--color-border-pb);
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  /* display: flex; */
 }
 
 main {
