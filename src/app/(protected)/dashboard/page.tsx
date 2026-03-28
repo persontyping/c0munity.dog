@@ -14,8 +14,13 @@ export default async function DashboardPage() {
         <p>
           Signed in as <span className="high-1">{user?.email}</span>
         </p>
-        <form action={logout}>
-          <button type="submit">Log out</button>
+        <form action={logout} className="mt-4">
+          <button
+            type="submit"
+            className="rounded-md border border-pink-600 px-3 py-2 text-sm font-semibold text-pink-700 transition-colors hover:bg-pink-50"
+          >
+            Log out
+          </button>
         </form>
       </div>
 

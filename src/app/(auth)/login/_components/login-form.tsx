@@ -8,9 +8,12 @@ export default function LoginForm() {
   const [state, action, pending] = useActionState(login, undefined);
 
   return (
-    <form action={action} noValidate>
-      <div style={{ marginBottom: "1rem" }}>
-        <label htmlFor="email" style={{ display: "block", marginBottom: "0.25rem" }}>
+    <form action={action} noValidate className="space-y-4">
+      <div className="space-y-1">
+        <label
+          htmlFor="email"
+          className="block text-sm font-semibold text-(--color-text-dark)"
+        >
           Email
         </label>
         <input
@@ -19,17 +22,20 @@ export default function LoginForm() {
           type="email"
           autoComplete="email"
           required
-          style={{ width: "100%" }}
+          className="block w-full rounded-md border border-teal-700/40 bg-white/90 px-3 py-2 text-sm text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
         />
         {state?.errors?.email && (
-          <p role="alert" style={{ color: "red", fontSize: "0.8rem" }}>
+          <p role="alert" className="text-sm text-rose-700">
             {state.errors.email}
           </p>
         )}
       </div>
 
-      <div style={{ marginBottom: "1rem" }}>
-        <label htmlFor="password" style={{ display: "block", marginBottom: "0.25rem" }}>
+      <div className="space-y-1">
+        <label
+          htmlFor="password"
+          className="block text-sm font-semibold text-(--color-text-dark)"
+        >
           Password
         </label>
         <input
@@ -38,22 +44,26 @@ export default function LoginForm() {
           type="password"
           autoComplete="current-password"
           required
-          style={{ width: "100%" }}
+          className="block w-full rounded-md border border-teal-700/40 bg-white/90 px-3 py-2 text-sm text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
         />
         {state?.errors?.password && (
-          <p role="alert" style={{ color: "red", fontSize: "0.8rem" }}>
+          <p role="alert" className="text-sm text-rose-700">
             {state.errors.password}
           </p>
         )}
       </div>
 
       {state?.error && (
-        <p role="alert" style={{ color: "red", marginBottom: "1rem" }}>
+        <p role="alert" className="text-sm text-rose-700">
           {state.error}
         </p>
       )}
 
-      <button type="submit" disabled={pending} style={{ width: "100%" }}>
+      <button
+        type="submit"
+        disabled={pending}
+        className="w-full rounded-md bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-teal-600 disabled:cursor-not-allowed disabled:opacity-60"
+      >
         {pending ? "Logging in…" : "Log in"}
       </button>
     </form>

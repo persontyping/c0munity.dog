@@ -10,15 +10,15 @@ export default async function GlobalHeader() {
   } = await supabase.auth.getUser();
 
   return (
-    <header className="sticky flex top-0 z-50 border-b-2 border-teal-500/60 bg-(--background)/95 backdrop-blur m-7">
+    <header className="sticky flex top-0 z-50 border-teal-500/60 bg-(--background)/95 backdrop-blur m-7">
 
       <div className="w-2 h-2"></div>
-      <div className="flex-col-reverse flex-2 mr-6">
+      <div className="flex-col-reverse flex-6 ">
         <Link
           href="/"
-          className="text-4xl font-bold tracking-tight text-teal-800 transition-colors hover:text-teal-600"
-          style={{ fontFamily: '"Amatic SC", "Mynerve", cursive' }}
-        > c0mmunity.dog 🌭 </Link>
+          className="text-7xl"
+          style={{ fontFamily: '"Monofett", "Amatic SC", "Mynerve", cursive' }}
+        > c0mmunity.dog <span className="text-5xl">🌭</span></Link>
       </div>
 
       <nav aria-label="Global" className="flex flex-8 flex-row flex-wrap justify-end items-center gap-5 mr-15 ">
@@ -26,9 +26,9 @@ export default async function GlobalHeader() {
         {user ? (
           <>
   
-              <p className=" font-medium">
+              {/* <p className=" font-medium">
                 Signed in as <span className="high-1">{user?.email}</span>
-              </p>
+              </p> */}
 
 
             <Link
@@ -37,10 +37,10 @@ export default async function GlobalHeader() {
             >
               Dashboard
             </Link>
-            <form action={logout}>
+            <form action={logout} className="m-0">
               <button
                 type="submit"
-
+                className="rounded-md border border-pink-600 px-3 py-2 text-sm font-semibold text-pink-700 transition-colors hover:bg-pink-50"
               >
                 Log out
               </button>
