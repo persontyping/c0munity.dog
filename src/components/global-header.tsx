@@ -12,7 +12,7 @@ export default async function GlobalHeader() {
   return (
     <header className="sticky flex top-0 z-50 border-b-2 border-teal-500/60 bg-(--background)/95 backdrop-blur m-7">
 
-       <div className="w-2 h-2"></div>
+      <div className="w-2 h-2"></div>
       <div className="flex-col-reverse flex-2 mr-6">
         <Link
           href="/"
@@ -25,24 +25,26 @@ export default async function GlobalHeader() {
         {/* If a user is logged in, show their email and dashboard link */}
         {user ? (
           <>
+  
+              <p className=" font-medium">
+                Signed in as <span className="high-1">{user?.email}</span>
+              </p>
 
-            <p className="hidden text-sm font-medium text-teal-900 md:block">
-              Signed in as <span className="high-1">{user?.email}</span>
-            </p>
+
             <Link
               href="/dashboard"
-          
+
             >
               Dashboard
             </Link>
-              <form action={logout}>
-                <button
-                  type="submit"
-              
-                >
-                  Log out
-                </button>
-              </form>
+            <form action={logout}>
+              <button
+                type="submit"
+
+              >
+                Log out
+              </button>
+            </form>
 
           </>
         ) : (
