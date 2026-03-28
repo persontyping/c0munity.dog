@@ -16,7 +16,8 @@ export default function SignupForm() {
   }
 
   return (
-    <form action={action} noValidate className="space-y-4">
+    <div className="flex items-center justify-center min-h-screen w-screen border-b-pink-700 rounded-2xl p-4">
+       <form action={action} noValidate className="space-y-4">
       <div className="space-y-1">
         <label
           htmlFor="email"
@@ -71,10 +72,12 @@ export default function SignupForm() {
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-md bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-teal-600 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-lg outline-orange-600 px-4 py-2   text-white "
       >
         {pending ? "Creating account…" : "Create account"}
       </button>
     </form>
+    </div>
+   
   );
 }

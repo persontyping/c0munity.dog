@@ -18,7 +18,7 @@
   font-display: swap;
 } */
 
-/* @font-face {
+@font-face {
   font-family: "Amatic SC";
   src: url("/fonts/AmaticSC-Regular.ttf") format("truetype");
   font-style: normal;
@@ -26,7 +26,7 @@
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Amatic SC";
   src: url("/fonts/AmaticSC-Bold.ttf") format("truetype");
   font-style: normal;
@@ -57,10 +57,6 @@
 
 :root {
 
-  /* Fonts */
-  --font-sans: "DM Sans", "Nunito Sans", Helvetica, Arial, sans-serif;
-  /* --font-display: "Amatic SC", "Mynerve", cursive; */
-  --font-accent: "Monofett", monospace;
   
   /* Background */
   --color-bg-dark: rgb(35, 34, 34);
@@ -98,12 +94,14 @@
 
 
 html {
-  height: 100vh;
+  min-height: 100%;
 }
 
 
 body {
   margin: 0, auto;
+  min-height: 100vh;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--color-bg-dark);
@@ -113,11 +111,15 @@ body {
 
 main {
   min-height: calc(100vh - 150px);
-  border: 1px solid var(--color-border-pb);
+  border: 1px solid var(--color-pink-500);
   background: var(--color-bg-dark);
   color: var(--color-text-light);
   font-family: 'DM Sans', sans-serif;
   padding: 3em;
+}
+
+form {
+  font-family: "Amatic SC", sans-serif;
 }
 
 .logo{
@@ -143,7 +145,6 @@ a {
 }
 
 .high-1 {
-  color: var(--accent-teal);
   background: var(--accent-pink)/50;
 }
 

@@ -8,8 +8,8 @@ export default async function DashboardPage() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="h-lvh flex flex-row flex-wrap justify-center items-center border-amber-100 border-2 rounded gap-4  ">
-      <div className="h-60 w-60 border-2 border-amber-400 rounded">
+    <div className="min-h-lvh flex flex-row flex-wrap justify-center items-center border-amber-100 border-2 rounded gap-4  ">
+      <div className="h-60 w-60 border-amber-400 rounded">
         <h1>Dashboard</h1>
         <p>
           Signed in as <span className="high-1">{user?.email}</span>
@@ -17,7 +17,7 @@ export default async function DashboardPage() {
         <form action={logout} className="mt-4">
           <button
             type="submit"
-            className="rounded-md border border-pink-600 px-3 py-2 text-sm font-semibold text-pink-700 transition-colors hover:bg-pink-50"
+
           >
             Log out
           </button>
