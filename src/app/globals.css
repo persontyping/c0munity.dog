@@ -1,9 +1,60 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/forms";
 
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DM_Sans,Monofett/DM_Sans/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DM_Sans,Monofett/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Amatic SC";
+  src: url("/fonts/AmaticSC-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Amatic SC";
+  src: url("/fonts/AmaticSC-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monofett";
+  src: url("/fonts/Monofett/Monofett-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mynerve";
+  src: url("/fonts/Mynerve/Mynerve-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   --background: rgb(249, 241, 208);
   --foreground: rgb(36, 35, 36);
+  --font-sans: "DM Sans", "Nunito Sans", Helvetica, Arial, sans-serif;
+  --font-display: "Amatic SC", "Mynerve", cursive;
+  --font-accent: "Monofett", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +80,7 @@ body {
   flex-direction: column;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
