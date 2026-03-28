@@ -52,9 +52,9 @@ export default function ContactForm() {
     };
 
     return (
-        <section className="p-15">
-            <div className=" px-4 py-10 mx-auto flex flex-col">
-                <form onSubmit={handleSubmit} className="w-full flex flex-col gap-5 text-3xl">
+        <section className="contact-form-container flex flex-col h-full w-full">
+            <div className="px-4 py-4 border-2 border-b-blue-700 rounded flex flex-col flex-1 min-h-0">
+                <form onSubmit={handleSubmit} className="w-full flex flex-col flex-1 gap-5 text-3xl min-h-0">
                     <div className="flex gap-9">
                         <label className="flex items-center gap-4">
                             <input
@@ -74,39 +74,39 @@ export default function ContactForm() {
                             <input
                                 type="radio"
                                 name="intent"
-                                value="get-a-quote"
-                                checked={form.intent === "get-a-quote"}
+                                value="spill-the-tea"
+                                checked={form.intent === "spill-the-tea"}
                                 onChange={handleChange}
                                 className="w-7 h-7 accent-[#b9ff66]"
                             />
                             <span className="justify-start text-3xl font-normal">
-                                Get a Quote
+                                Spill the tea..
                             </span>
                         </label>
                     </div>
 
-                    <div className="w-full flex flex-col justify-start items-start gap-6">
+                    <div className="w-full flex flex-col flex-1 min-h-0 gap-6">
 
-                        <div className="w-full">
-                            <label className="text-3xl font-normal leading-7">
+                        <div className="w-full shrink-0">
+                            <label className="contact-label text-3xl font-normal leading-7">
                                 Name*
                             </label>
                             <input
-                                placeholder=""
+                                placeholder="Name"
                                 type="text"
                                 name="name"
                                 value={form.name}
                                 onChange={handleChange}
-                                className="mt-2 w-full px-6 py-4 bg-white rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] text-3xl font-normal"
+                                className="mt-2 w-full px-6 py-4 rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] text-3xl font-normal"
                             />
                         </div>
 
-                        <div className="w-full">
-                            <label className="dark:text-white text-3xl font-normal leading-7">
+                        <div className="w-full shrink-0">
+                            <label className="contact-label dark:text-white text-3xl font-normal leading-7">
                                 Email*
                             </label>
                             <input
-                                placeholder=""
+                                placeholder="Email"
                                 type="email"
                                 name="email"
                                 value={form.email}
@@ -115,16 +115,17 @@ export default function ContactForm() {
                             />
                         </div>
 
-                        <div className="w-full">
-                            <label className="text-3xl  font-normal leading-7">
+                        <div className="w-full flex flex-col flex-1 min-h-0">
+                            <label className="contact-label dark:text-white text-3xl font-normal leading-7">
                                 Message*
                             </label>
+
                             <textarea
                                 name="message"
                                 value={form.message}
                                 onChange={handleChange}
-                                className="mt-2 w-full resize-none px-6 py-4 bg-white rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] text-3xl font-normal"
-                                placeholder=""
+                                className="mt-2 w-full flex-1 min-h-0 resize-none px-4 py-4 bg-white rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] text-3xl font-normal"
+                                placeholder="Message"
                                 cols={40}
                                 rows={10}
                             />
