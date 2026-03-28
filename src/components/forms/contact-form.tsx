@@ -52,7 +52,7 @@ export default function ContactForm() {
 
     return (
         <section className="contact-form-container flex flex-col h-full w-full">
-            <div className="px-4 py-4 border-2 border-b-blue-700 rounded flex flex-col flex-1 min-h-0">
+            <div className="px-4 py-4 border-2 border-green-400 rounded-md flex flex-col flex-1 min-h-0">
                 <form onSubmit={handleSubmit} className="w-full flex flex-col flex-1 gap-5 text-3xl min-h-0">
                     <div className="flex gap-9">
                         <label className="flex items-center gap-4">
@@ -97,7 +97,7 @@ export default function ContactForm() {
                                 value={form.name}
                                 onChange={handleChange}
                                 required
-                                className="mt-2 w-full px-6 py-4 rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] text-3xl font-normal"
+                                style={{ fontFamily: '"DM Sans", sans-serif' }} className="block w-full text-1xl rounded-md border bg-white/90 px-3 py-2 text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
                             />
                         </div>
 
@@ -112,7 +112,7 @@ export default function ContactForm() {
                                 value={form.email}
                                 onChange={handleChange}
                                 required
-                                className="mt-2 w-full px-6 py-4 text-3xl rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] font-normal"
+                                style={{ fontFamily: '"DM Sans", sans-serif' }} className="block w-full text-1xl rounded-md border bg-white/90 px-3 py-2 text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
                             />
                         </div>
 
@@ -126,7 +126,7 @@ export default function ContactForm() {
                                 value={form.message}
                                 onChange={handleChange}
                                 required
-                                className="mt-2 w-full flex-1 min-h-0 resize-none px-4 py-4 bg-white rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] text-3xl font-normal"
+                                style={{ fontFamily: '"DM Sans", sans-serif' }} className="block w-full text-1xl rounded-md border bg-white/90 px-3 py-2 text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
                                 placeholder="Message"
                                 cols={40}
                                 rows={10}

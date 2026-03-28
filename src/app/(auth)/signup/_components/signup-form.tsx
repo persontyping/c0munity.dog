@@ -30,7 +30,7 @@ export default function SignupForm() {
                 type="email"
                 autoComplete="email"
                 required
-                className="block w-full rounded-md border border-orange-700 bg-white/90 px-3 py-2 "
+                style={{ fontFamily: '"DM Sans", sans-serif' }} className="block w-full text-1xl rounded-md border bg-white/90 px-3 py-2 text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
               />
               {state?.errors?.email && (
                 <p role="alert" className="text-3xl text-rose-400">
@@ -53,7 +53,7 @@ export default function SignupForm() {
                 autoComplete="new-password"
                 required
                 minLength={8}
-                className="block w-full rounded-md border border-purple-700/40"
+                style={{ fontFamily: '"DM Sans", sans-serif' }} className="block w-full text-1xl rounded-md border bg-white/90 px-3 py-2 text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
               />
               {state?.errors?.password && (
                 <p role="alert" className="text-3xl text-rose-400">
