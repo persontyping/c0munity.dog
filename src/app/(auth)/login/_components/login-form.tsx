@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useActionState } from "react";
 import { login } from "@/app/actions/auth";
 import MagicLinkForm from "./magic-link-form";
@@ -8,6 +8,26 @@ import MagicLinkForm from "./magic-link-form";
 export default function LoginForm() {
   const [state, action, pending] = useActionState(login, undefined);
   const [email, setEmail] = useState("");
+  const magicLinkContainerRef = useRef<HTMLDivElement>(null);
+  const shouldShowMagicLinkForm =
+    Boolean(state?.errors?.email) ||
+    Boolean(state?.errors?.password) ||
+    Boolean(state?.error);
+
+  const openMagicLinkForm = () => {
+    requestAnimationFrame(() => {
+      magicLinkContainerRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    });
+  };
+
+  useEffect(() => {
+    if (shouldShowMagicLinkForm) {
+      openMagicLinkForm();
+    }
+  }, [shouldShowMagicLinkForm]);
 
   return (
     <section>
@@ -35,9 +55,9 @@ export default function LoginForm() {
                   className="block w-full rounded-md border px-3 py-2 text-sm text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
                 />
                 {state?.errors?.email && (
-                  <p role="alert" className="text-sm text-rose-700">
+                  <h1 className="text-lg text-amber-100 p-1">
                     {state.errors.email}
-                  </p>
+                  </h1>
                 )}
               </div>
             </div>
@@ -58,17 +78,17 @@ export default function LoginForm() {
               />
             </div>
             {state?.errors?.password && (
-              <p role="alert" className="text-3xl text-rose-700">
+              <h1 className="text-3xl text-amber-100 p-1">
                 {state.errors.password}
-              </p>
+              </h1>
             )}
-
-
-            {state?.error && (
-              <div className="flex flex-col gap-4">
-                <p role="alert" className="text-3xl text-rose-700">
-                  {state.error}
-                </p>
+            {shouldShowMagicLinkForm && (
+              <div ref={magicLinkContainerRef} className="flex flex-col gap-4">
+                {state?.error && (
+                  <h1 role="alert" className="text-3xl text-amber-100 p-1">
+                    {state.error}
+                  </h1>
+                )}
                 <MagicLinkForm email={email} />
               </div>
             )}
