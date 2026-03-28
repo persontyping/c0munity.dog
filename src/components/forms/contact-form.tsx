@@ -97,6 +97,7 @@ export default function ContactForm() {
                                 name="name"
                                 value={form.name}
                                 onChange={handleChange}
+                                required
                                 className="mt-2 w-full px-6 py-4 rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] text-3xl font-normal"
                             />
                         </div>
@@ -111,6 +112,7 @@ export default function ContactForm() {
                                 name="email"
                                 value={form.email}
                                 onChange={handleChange}
+                                required
                                 className="mt-2 w-full px-6 py-4 text-3xl rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] font-normal"
                             />
                         </div>
@@ -124,6 +126,7 @@ export default function ContactForm() {
                                 name="message"
                                 value={form.message}
                                 onChange={handleChange}
+                                required
                                 className="mt-2 w-full flex-1 min-h-0 resize-none px-4 py-4 bg-white rounded-xl outline-1 -outline-offset-1 outline-black overflow-hidden text-[#898989] text-3xl font-normal"
                                 placeholder="Message"
                                 cols={40}
