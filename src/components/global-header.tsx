@@ -10,46 +10,60 @@ export default async function GlobalHeader() {
   } = await supabase.auth.getUser();
 
   return (
-    <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 50
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "960px",
-          margin: "0 auto",
-          padding: "0.9rem 1rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "1rem",
-        }}
-      >
-        <Link href="/" >
-          c0mmunity.dog 🌭
+    <header className="sticky top-0 z-50 header-1 ">
+      <div className="mx-auto flex w-full max-w-300 items-center justify-between ">
+
+        <Link
+          href="/"
+          className="logo text-2xl font-bold">
+          c0mmunity.dog<span className="logo-box text-5xl">
+            🌭
+          </span>
         </Link>
 
         <nav
           aria-label="Global"
-          style={{ display: "flex", alignItems: "left", gap: "0.75rem", border: "solid 1px blue" }}
+          className="flex items-center gap-2"
         >
-          <Link href="/">Home</Link>
+          <Link
+            href="/"
+            className=""
+          >
+            Home
+          </Link>
 
           {user ? (
             <>
-              <p>Signed in as <strong>{user?.email}</strong></p>
-              <Link href="/dashboard">Dashboard</Link>
+              <p className="hidden ">
+                Signed in as <span className="high-1">{user?.email}</span>
+              </p>
+              <Link
+                href="/dashboard">
+                Dashboard
+              </Link>
               <form action={logout}>
-                <button type="submit">Log out</button>
+                <button
+                  type="submit"
+                  className=""
+                >
+                  Log out
+                </button>
               </form>
             </>
           ) : (
             <>
-              <Link href="/login">Log in</Link>
-              <Link href="/signup">Sign up</Link>
+              <Link
+                href="/login"
+                className=""
+              >
+                Log in
+              </Link>
+              <Link
+                href="/signup"
+                className=""
+              >
+                Sign up
+              </Link>
             </>
           )}
         </nav>

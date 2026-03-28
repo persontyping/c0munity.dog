@@ -8,14 +8,18 @@ export default async function DashboardPage() {
   } = await supabase.auth.getUser();
 
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>Dashboard</h1>
-      <p>
-        Signed in as <strong>{user?.email}</strong>
-      </p>
-      <form action={logout} style={{ marginTop: "1rem" }}>
-        <button type="submit">Log out</button>
-      </form>
-    </main>
+    <div className="h-lvh flex flex-row flex-wrap justify-center items-center border-amber-100 border-2 rounded gap-4  ">
+      <div className="h-60 w-60 border-2 border-amber-400 rounded">
+        <h1>Dashboard</h1>
+        <p>
+          Signed in as <span className="high-1">{user?.email}</span>
+        </p>
+        <form action={logout}>
+          <button type="submit">Log out</button>
+        </form>
+      </div>
+
+    </div>
+
   );
 }

@@ -31,7 +31,7 @@ export default function RootLayout({
       </head>
       <body>
         <GlobalHeader />
-        <main style={{ flex: 1, margin: "0 auto", maxWidth: "960px" }}>{children}</main>
+          <main>{children}</main>
       </body>
     </html>
   );
