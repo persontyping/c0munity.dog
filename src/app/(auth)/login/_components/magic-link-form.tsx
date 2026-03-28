@@ -16,9 +16,9 @@ export default function MagicLinkForm({ email }: MagicLinkFormProps) {
       <input name="email" type="hidden" value={email} readOnly />
 
       <div className="space-y-1">
-        <p className="text-sm text-(--color-text-secondary)">
-          We will send a magic link to the email address entered above.
-        </p>
+        <h1 role="alert" className="text-lg text-yellow-200 p-1" style={{ fontFamily: '"DM Sans", sans-serif' }}>
+           Click below for a magic link.
+        </h1>
         {state?.errors?.email && (
           <p role="alert" className="text-sm text-rose-700">
             {state.errors.email}
@@ -41,9 +41,9 @@ export default function MagicLinkForm({ email }: MagicLinkFormProps) {
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-md bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-teal-600 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full px-4 py-2 my-4 text-4xl rounded-md font-semibold border-2 border-pink-500 transition-colors  hover:text-zinc-950 hover:bg-yellow-100 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {pending ? "Sending magic link…" : "Email me a magic link"}
+        {pending ? "Sending magic link…" : "Email the Link"}
       </button>
     </form>
   );

@@ -32,7 +32,7 @@ export default function LoginForm() {
   return (
     <section>
       <section className="login-form-container flex h-full w-full">
-        <div className="px-4 py-4 border-2 border-yellow-300 rounded-md flex flex-1 min-h-0">
+        <div className="px-4 py-4 border-2 border-blue-600 rounded-md flex flex-1 min-h-0">
           <form action={action} noValidate className="w-full flex flex-col flex-1 gap-5 text-3xl min-h-0">
             <div className="flex flex-row gap-9">
               <div className="w-full flex flex-col flex-1 min-h-0 gap-6">
@@ -52,7 +52,7 @@ export default function LoginForm() {
                   required
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="block w-full rounded-md border px-3 py-2 text-sm text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
+                style={{ fontFamily: '"DM Sans", sans-serif' }} className="block w-full text-1xl rounded-md border bg-white/90 px-3 py-2 text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
                 />
                 {state?.errors?.email && (
                   <h1 className="text-lg text-amber-100 p-1">
@@ -65,7 +65,7 @@ export default function LoginForm() {
               <label
                 htmlFor="password">
                 <span className="justify-start text-3xl font-normal">
-                  Password
+                  <h3 className="text-xl " style={{ fontFamily: '"DM Sans", sans-serif' }}>Password</h3>
                 </span>
               </label>
               <input
@@ -74,7 +74,7 @@ export default function LoginForm() {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="block w-full rounded-md border bg-white/90 px-3 py-2 text-sm text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
+                style={{ fontFamily: '"DM Sans", sans-serif' }} className="block w-full text-2xl rounded-md border bg-white/90 px-3 py-2 text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
               />
             </div>
             {state?.errors?.password && (
@@ -83,9 +83,9 @@ export default function LoginForm() {
               </h1>
             )}
             {shouldShowMagicLinkForm && (
-              <div ref={magicLinkContainerRef} className="flex flex-col gap-4">
+              <div ref={magicLinkContainerRef} className="flex flex-col gap-4 justify-center items-center">
                 {state?.error && (
-                  <h1 role="alert" className="text-3xl text-amber-100 p-1">
+                  <h1 role="alert" className="text-2xl text-pink-300 p-1" style={{ fontFamily: '"DM Sans", sans-serif' }}>
                     {state.error}
                   </h1>
                 )}
@@ -96,7 +96,7 @@ export default function LoginForm() {
               <button
                 type="submit"
                 disabled={pending}
-                className="w-full px-4 py-3 my-4 text-5xl rounded-md font-semibold border-2 border-b-cyan-500 transition-colors  hover:text-zinc-950 hover:bg-yellow-100 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full px-4 py-2 my-4 text-5xl rounded-md font-semibold border-2 border-cyan-500 transition-colors  hover:text-zinc-950 hover:bg-yellow-100 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {pending ? "Logging in…" : "Log in"}
               </button>
