@@ -4,17 +4,8 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        minHeight: "100vh",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ width: "100%", maxWidth: "360px", padding: "2rem" }}>
-        {children}
-      </div>
+    <div className="mx-auto flex w-full max-w-md items-start justify-center px-4 py-6 sm:px-6 sm:py-10">
+      <div className="w-full">{children}</div>
     </div>
   );
 }

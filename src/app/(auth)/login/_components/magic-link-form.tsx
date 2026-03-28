@@ -4,26 +4,21 @@ import { useActionState } from "react";
 
 import { loginWithMagicLink } from "@/app/actions/auth";
 
-export default function MagicLinkForm() {
+type MagicLinkFormProps = {
+  email: string;
+};
+
+export default function MagicLinkForm({ email }: MagicLinkFormProps) {
   const [state, action, pending] = useActionState(loginWithMagicLink, undefined);
 
   return (
     <form action={action} noValidate className="space-y-4">
+      <input name="email" type="hidden" value={email} readOnly />
+
       <div className="space-y-1">
-        <label
-          htmlFor="magic-email"
-          className="block text-sm font-semibold text-(--color-text-dark)"
-        >
-          Email
-        </label>
-        <input
-          id="magic-email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          required
-          className="block w-full rounded-md border border-teal-700/40 bg-white/90 px-3 py-2 text-sm text-(--color-text-dark) shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-300/60"
-        />
+        <p className="text-sm text-(--color-text-secondary)">
+          We will send a magic link to the email address entered above.
+        </p>
         {state?.errors?.email && (
           <p role="alert" className="text-sm text-rose-700">
             {state.errors.email}

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import GlobalHeader from "@/components/global-header";
+import GlobalFooter from "@/components/global-footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -29,9 +30,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preload" as="font" href="/fonts/DM_Sans,Monofett/DM_Sans/DMSans-VariableFont_opsz,wght.ttf" type="font/ttf" />
       </head>
-      <body>
-        <GlobalHeader />
-          <main>{children}</main>
+      <body className="flex min-h-screen flex-col">
+   
+          <GlobalHeader />
+  
+        <main className="flex-1">{children}</main>
+        <GlobalFooter />
       </body>
     </html>
   );
